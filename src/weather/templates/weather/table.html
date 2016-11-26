@@ -1,0 +1,21 @@
+{% if sensor_list %}
+  <table border="1">
+    <tr>
+      <td>Datetime</td>
+      <td>Sensor</td>
+      <td>Value</td>
+    </tr>
+    <ul>
+    {% for entity in sensor_list %}
+        <tr>
+          <td>{{ entity.timestamp }}</td>
+          <td>{{ entity.sensor.name }}</td>
+          <td>{{ entity.value }}</td>
+        </tr>
+    {% endfor %}
+    </ul>
+
+    </table>
+{% else %}
+    <p>No data.</p>
+{% endif %}
