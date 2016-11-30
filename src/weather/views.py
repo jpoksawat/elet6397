@@ -23,7 +23,7 @@ class IndexView(generic.ListView):
 
 def temperature_detail(request, sensor_id):
     sensor = get_object_or_404(Sensor, pk=sensor_id)
-    sensor_list = sensor.temperature_set.all().order_by('-timestamp')
+    sensor_list = sensor.temperature_set.all().order_by('-timestamp')[:100]
     context = {'sensor_list': sensor_list}
 
     return render(request, 'weather/table.html', context)
