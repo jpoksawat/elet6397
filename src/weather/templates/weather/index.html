@@ -1,16 +1,17 @@
+<h1>Weather Station on Django</h1>
 {% if sensor_list %}
     <ul>
     {% for sensor in sensor_list %}
       <h1> {{ sensor.name }} </h1>
         <li>
             Temperature -
-            <a href="{% url 'weather:temperature_detail' sensor.id %}">Table</a> -
-            <a href="{% url 'weather:temperature_chart' sensor.id %}">Chart</a>
+            <a href="{% url 'weather:detail' sensor.id 'temperature' %}">Table</a> -
+            <a href="{% url 'weather:chart' sensor.id 'temperature' %}">Chart</a>
         </li>
         <li>
             Humidity -
-            <a href="{% url 'weather:humidity_detail' sensor.id %}">Table</a> -
-            <a href="{% url 'weather:humidity_chart' sensor.id %}">Chart</a>
+            <a href="{% url 'weather:detail' sensor.id 'humidity' %}">Table</a> -
+            <a href="{% url 'weather:chart' sensor.id 'humidity' %}">Chart</a>
         </li>
     {% endfor %}
     </ul>
